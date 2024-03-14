@@ -6,3 +6,7 @@ class Project(models.Model):
     date = models.DateField(blank=True, null=True)
     skills = models.TextField(blank=True, null=True)
     links = models.TextField(blank=True, null=True)
+
+class Image(models.Model):
+    imageName = models.CharField(max_length=100)
+    project = models.ForeignKey('Project', on_delete=models.CASCADE, blank=False, null=False)
