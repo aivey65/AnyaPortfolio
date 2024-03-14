@@ -1,3 +1,9 @@
+/*
+  font-family: "Mada", sans-serif; // Substance/content
+  font-family: "Barlow Condensed", sans-serif; // Section titles
+  font-family: "Abel", sans-serif; // Name / Title
+*/
+
 :root {
     --smallPad: 10px;
     --medPad: 20px;
@@ -9,6 +15,18 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+}
+
+h1, h3 {
+    font-family: "Abel", sans-serif;
+}
+
+h2  {
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+p, a, li {
+    font-family: "Mada", sans-serif;
 }
 
 #main, #root {
