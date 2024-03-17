@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Login and Authentication
+LOGIN_URL = '/admin'
 
 # Application definition
 

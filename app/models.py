@@ -7,6 +7,30 @@ class Project(models.Model):
     skills = models.TextField(blank=True, null=True)
     links = models.TextField(blank=True, null=True)
 
-class Image(models.Model):
+class ProjectImage(models.Model):
     imageName = models.CharField(max_length=100)
     project = models.ForeignKey('Project', on_delete=models.CASCADE, blank=False, null=False)
+
+class AboutImage(models.Model):
+    pass
+
+class Profile(models.Model):
+    blurb = models.TextField(blank=True, null=True)
+    skills = models.TextField(blank=True, null=True)
+    hobbies = models.TextField(blank=True, null=True)
+    location = models.CharField(max_length=100)
+    LinkedIn = models.CharField(max_length=100)
+    Instagram = models.CharField(max_length=100)
+    Behance = models.CharField(max_length=100)
+
+    def save(self, *args, **kwargs):
+       self.pk = 'X'
+       super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk='X')
+        return obj
