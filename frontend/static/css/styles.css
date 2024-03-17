@@ -153,6 +153,27 @@ nav ol {
     overflow: auto;
 }
 
+/* General */
+#transition-bubble {
+    background-color: var(--Light);
+    aspect-ratio: 1/1;
+    width: 200vw;
+    height: auto;
+    border-radius: 0px 0px 100% 0px;
+    transform-origin: top left;
+    transform: scale(0);
+    transition: transform 5s ease;
+    z-index: +1;
+}
+
+.activate {
+    transform: scale(1);
+}
+
+.deactivate {
+    transform: scale(0);
+}
+
 /* Home Section */
 #home-title {
     color: var(--Accent1);

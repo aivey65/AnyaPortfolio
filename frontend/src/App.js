@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { transitionOpen, transitionClose } from './index';
 
 import Header from './components/Header';
 import ProjectPage from "./components/pages/ProjectPage";
@@ -12,7 +13,20 @@ function App() {
     const [currentPage, setCurrentPage] = useState(false);
 
     function updatePage(newPage) {
-        setCurrentPage(newPage);
+        var bubble = document.getElementById("transition-bubble");
+
+        if (bubble == null) {
+            bubble = document.createElement("div");
+            bubble.id = "transition-bubble";
+            document.body.append(bubble);
+        }
+
+        bubble.addEventListener("transitionend", (e) => {
+            console.log(e)
+            setCurrentPage(newPage);
+        });
+        
+        transitionOpen();
     }
 
     window.addEventListener("resize", () => {
