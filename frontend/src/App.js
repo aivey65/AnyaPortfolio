@@ -15,16 +15,10 @@ function App() {
     function updatePage(newPage) {
         var bubble = document.getElementById("transition-bubble");
 
-        if (bubble == null) {
-            bubble = document.createElement("div");
-            bubble.id = "transition-bubble";
-            document.body.append(bubble);
-        }
-
         bubble.addEventListener("transitionend", (e) => {
-            console.log(e)
             setCurrentPage(newPage);
-        });
+            transitionClose();
+        }, {once: true});
         
         transitionOpen();
     }
@@ -52,6 +46,7 @@ function App() {
 
     return <>
         <Header mobile={mobile} setPageFunction={updatePage} />
+        <div id="transition-bubble" className='deactivate'></div>
         {page}
     </>;
 }
