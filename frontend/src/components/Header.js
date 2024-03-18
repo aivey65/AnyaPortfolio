@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header({ mobile, setPageFunction }) {
+export default function Header({ mobile, setPageFunction, activeTab }) {
     return <div id="header">
         <nav>
             <ol>

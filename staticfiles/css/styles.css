@@ -97,6 +97,11 @@ a:hover {
     color: var(--Grey);
 }
 
+nav {
+    position: sticky;
+    z-index: +2;
+}
+
 nav ol {
     font-family: "ivymode", sans-serif; 
     list-style-type: none;
@@ -151,6 +156,28 @@ nav ol {
     display: flex;
     flex-direction: column;
     overflow: auto;
+}
+
+/* General */
+#transition-bubble {
+    background-color: var(--Light);
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 120vw;
+    height: auto;
+    border-radius: 0px 0px 100% 0px;
+    transform: scale(0);
+    transform-origin: top left;
+    transition: transform .8s ease-in-out;
+    z-index: +1;
+}
+
+.activate {
+    transform: scale(1) !important;
+}
+
+.deactivate {
+    transform: scale(0) !important;
 }
 
 /* Home Section */

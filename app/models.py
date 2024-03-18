@@ -9,7 +9,7 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     image_name = models.CharField(max_length=100)
-    image_blob = models.ImageField(upload_to='images')
+    image_blob = models.ImageField(upload_to='images', blank=True, null=True)
     project = models.ForeignKey('Project', on_delete=models.CASCADE, blank=False, null=False)
 
 class AboutImage(models.Model):

@@ -13,6 +13,10 @@ function App() {
     const [currentPage, setCurrentPage] = useState(false);
 
     function updatePage(newPage) {
+        if (newPage == currentPage) {
+            return
+        }
+
         var bubble = document.getElementById("transition-bubble");
 
         bubble.addEventListener("transitionend", (e) => {
@@ -45,7 +49,7 @@ function App() {
     }
 
     return <>
-        <Header mobile={mobile} setPageFunction={updatePage} />
+        <Header mobile={mobile} setPageFunction={updatePage} activeTab={currentPage} />
         <div id="transition-bubble" className='deactivate'></div>
         {page}
     </>;
