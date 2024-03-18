@@ -168,7 +168,7 @@ nav ol {
     border-radius: 0px 0px 100% 0px;
     transform: scale(0);
     transform-origin: top left;
-    transition: transform 1.3s ease-out;
+    transition: transform .8s ease-out;
     z-index: +1;
 }
 

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics
 from . import serializers, models
 from django.contrib.auth.decorators import login_required

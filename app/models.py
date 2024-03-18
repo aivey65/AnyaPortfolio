@@ -8,7 +8,8 @@ class Project(models.Model):
     links = models.TextField(blank=True, null=True)
 
 class ProjectImage(models.Model):
-    imageName = models.CharField(max_length=100)
+    image_name = models.CharField(max_length=100)
+    image_blob = models.ImageField(upload_to='images')
     project = models.ForeignKey('Project', on_delete=models.CASCADE, blank=False, null=False)
 
 class AboutImage(models.Model):
