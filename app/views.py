@@ -14,3 +14,11 @@ class ProjectView(generics.ListAPIView):
 class ProfileView(generics.ListAPIView):
     queryset = models.Profile.objects.all()
     serializer_class = serializers.ProfileSerializer
+
+class ProfileCreate(generics.CreateAPIView):
+    queryset = models.Profile.objects.all()
+    serializer_class = serializers.ProfileSerializer
+
+class AboutImageView(generics.ListAPIView):
+    queryset = models.AboutImage.objects.all()
+    serializer_class = serializers.AboutImageSerializer

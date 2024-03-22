@@ -13,19 +13,10 @@ class ProjectImage(models.Model):
     project = models.ForeignKey('Project', on_delete=models.CASCADE, blank=False, null=False)
 
 class AboutImage(models.Model):
-    pass
-
-class Profile(models.Model):
-    blurb = models.TextField(blank=True, null=True)
-    skills = models.TextField(blank=True, null=True)
-    hobbies = models.TextField(blank=True, null=True)
-    location = models.CharField(max_length=100)
-    LinkedIn = models.CharField(max_length=100)
-    Instagram = models.CharField(max_length=100)
-    Behance = models.CharField(max_length=100)
+    image_blob = models.ImageField(upload_to='images', blank=True, null=True)
 
     def save(self, *args, **kwargs):
-       self.pk = 'X'
+       self.pk = '0'
        super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
@@ -33,5 +24,26 @@ class Profile(models.Model):
 
     @classmethod
     def load(cls):
-        obj, created = cls.objects.get_or_create(pk='X')
+        obj, created = cls.objects.get_or_create(pk='0')
+        return obj
+
+class Profile(models.Model):
+    blurb = models.TextField(blank=False, null=False)
+    skills = models.TextField(blank=True, null=True)
+    hobbies = models.TextField(blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    LinkedIn = models.CharField(max_length=100, blank=True, null=True)
+    Instagram = models.CharField(max_length=100, blank=True, null=True)
+    Behance = models.CharField(max_length=100, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+       self.pk = '0'
+       super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk='0')
         return obj

@@ -10,3 +10,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Profile
         fields = ("blurb", "skills", "hobbies", "location", "LinkedIn", "Instagram", "Behance")
+
+class AboutImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.AboutImage
+        fields = ("image_blob",)
